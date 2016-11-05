@@ -39,6 +39,8 @@ public class GUI extends GBFrame{
 		try{
 			List = (DoubleLinkedList)FileInputOutput.getFile();
 			outputArea.setText(List.getCurrent().getValue().toString());
+			checkNext();
+			checkPrevious();
 		}
 		catch(Exception E){
 			List = new DoubleLinkedList();
@@ -105,8 +107,8 @@ public class GUI extends GBFrame{
 			FileInputOutput.Delete("Data.dat");
 			outputArea.setText("All Data Has Been Cleared!");
 			List = new DoubleLinkedList();
-			checkPrevious();
-			checkNext();
+			Next.setEnabled(false);
+			Previous.setEnabled(false);
 		}
 		else{
 			FileInputOutput.write(List);
