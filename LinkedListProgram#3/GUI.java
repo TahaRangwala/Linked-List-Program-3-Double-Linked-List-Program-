@@ -21,6 +21,7 @@ public class GUI extends GBFrame{
 	
 	//Constructor method for initializing instance variables and window objects
 	public GUI(){
+		Student.sortName = true;
 		List = new DoubleLinkedList();//initializing the double linked list class object
 		Add = addButton("Add",1,1,1,1);
 		Delete = addButton("Delete",1,2,1,1);
@@ -38,6 +39,7 @@ public class GUI extends GBFrame{
 		//Checking for any existing files
 		try{
 			List = (DoubleLinkedList)FileInputOutput.getFile();
+			List.reAdd();
 			outputArea.setText(List.getCurrent().getValue().toString());
 			checkNext();
 			checkPrevious();

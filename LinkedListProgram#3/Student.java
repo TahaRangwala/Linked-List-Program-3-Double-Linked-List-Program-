@@ -12,7 +12,7 @@ import BreezySwing.Format;//import more formatting options
 public class Student implements Comparable <Student>, Serializable{
 
 	//Declaring private instance variables
-	public static boolean sortName = true;//indicates whether or not to sort by name or gpa
+	public static boolean sortName;//indicates whether or not to sort by name or gpa
 	private String firstName;//student's first name
 	private String lastName;//student's last name
 	private int gradYear;//student's graduation year
@@ -84,8 +84,14 @@ public class Student implements Comparable <Student>, Serializable{
 				return firstName.compareTo(S.getFirstName());
 			return Compare;
 		}
-		else
-			return (int) (GPA - S.getGPA());
+		else{
+			double F = (GPA - S.getGPA());
+			if(F > 0)
+				return 1;
+			else if(F < 0)
+				return -1;
+			else return 0;
+		}
 	}
 	
 	/*Purpose: The purpose of this method is to error check for all of the student values

@@ -37,18 +37,18 @@ public class DoubleLinkedList<T extends Comparable<T>> implements Serializable {
 			Student.sortName = true;
 		if(Head != null)
 			reAdd();
+		Current = Head;
 	}
 
 	/*Purpose: This readds the values the user inputted before when they change the type of sort
 	 */
-	private void reAdd() {
+	public void reAdd() {
 		DoubleListNode<T> Temp = Head;
 		Head = null;
 		while (Temp != null) {
 			Add(Temp.getValue());
 			Temp = Temp.getNext();
 		}
-		Current = Head;
 	}
 
 	/*Purpose: This adds a new value to the double linked list
